@@ -42,17 +42,42 @@ function PictureInput(props: InputProps) {
 export default PictureInput;
 
 async function uploadPicture (urlToSend: string){
-  const response = await fetch('/api/analyze', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ urlToSend }),
-  });
+  try {
+    const response = await fetch(urlToSend);
+    if (!response.ok) {
+      throw new Error('Failed to fetch image');
+    }
 
-  if (!response.ok) {
-    throw new Error('Failed to upload picture');
+    const blob = await response.blob();
+
+    const base64String = await convertBlobToBase64(blob);
+
+    const apiResponse = await fetch('/api/analyze', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(base64String),
+    });
+
+    if (!apiResponse.ok) {
+      throw new Error('Failed to upload picture');
+    }
+
+    return apiResponse.json();
+  } catch (error) {
+    console.error(error);
+    throw new Error('An error occurred while uploading the picture');
   }
+}
 
-  return response.json();
-};
+function convertBlobToBase64(blob: Blob): Promise<string> {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      resolve(reader.result as string);
+    };
+    reader.onerror = reject;
+    reader.readAsDataURL(blob); 
+  });
+}
