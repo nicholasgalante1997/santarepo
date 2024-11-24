@@ -1,5 +1,5 @@
 {
-  "extends": "@pokemon/configs/typescript/bun.tsconfig.json",
+  "extends": "@santarepo/configs/typescript/bun.tsconfig.json",
   "compilerOptions": {
     "baseUrl": "./",
     "rootDir": "./",
