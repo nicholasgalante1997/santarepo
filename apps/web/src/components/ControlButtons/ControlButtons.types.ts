@@ -1,4 +1,4 @@
 export interface ControlProps {
-    setShowTable: any;
-    showTable: boolean;
+  setShowTable: any;
+  showTable: boolean;
 }

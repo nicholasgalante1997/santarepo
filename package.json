@@ -2,7 +2,10 @@
   "name": "@santarepo/root",
   "type": "module",
   "private": true,
-  "workspaces": ["apps/*", "packages/*"],
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
   "scripts": {
     "build": "turbo build",
     "start": "turbo start",

@@ -1,5 +1,5 @@
-import React from 'react'
-import { type ResponseProps } from './ResponseSection.types';
+import React from "react";
+import { type ResponseProps } from "./ResponseSection.types";
 
 function ResponseSection(props: ResponseProps) {
   if (props.showTable) {
@@ -7,25 +7,25 @@ function ResponseSection(props: ResponseProps) {
       <div>
         <h3>Requested Gifts:</h3>
         <table>
-          <th>
+          <thead>
             <tr>
-              <td>Num</td>
-              <td>Name</td>
-              <td>Category</td>
-              <td>Est. Price</td>
-              <td>Potential Links</td>
+              <th>Num</th>
+              <th>Name</th>
+              <th>Category</th>
+              <th>Est. Price</th>
+              <th>Potential Links</th>
             </tr>
-          </th>
+          </thead>
         </table>
       </div>
-    )
+    );
   }
   return (
     <div>
       <h3>Letter:</h3>
       <p> Extended version written out</p>
     </div>
-  )
+  );
 }
 
 export default ResponseSection;

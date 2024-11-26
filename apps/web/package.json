@@ -3,9 +3,9 @@
   "module": "src/index.tsx",
   "type": "module",
   "scripts": {
-    "start": "bun run src/index.tsx",
+    "start": "DEBUG=* bun run src/index.tsx",
     "build": "bun run src/build/browser.ts",
-    "dev": "bun run --hot src/dev.ts",
+    "dev": "DEBUG=* bun run --hot src/index.development.ts",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
@@ -25,6 +25,7 @@
     "@storybook/react-webpack5": "8.5.0-alpha.2",
     "@storybook/test": "8.5.0-alpha.2",
     "@types/bun": "^1.1.13",
+    "@types/debug": "^4.1.12",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
     "babel-loader": "^9.2.1",
@@ -36,6 +37,7 @@
     "eslint-plugin-storybook": "^0.11.1",
     "globals": "^15.12.0",
     "json-loader": "^0.5.7",
+    "npm-run-all": "^4.1.5",
     "storybook": "8.5.0-alpha.2",
     "style-loader": "^4.0.0",
     "typescript-eslint": "^8.15.0",
@@ -47,6 +49,7 @@
     "@tanstack/react-query": "^5.61.3",
     "axios": "^1.7.7",
     "debug": "^4.3.7",
+    "node-emoji": "^2.1.3",
     "react": "^19.0.0-rc-4beb1fd8-20241118",
     "react-dom": "^19.0.0-rc-4beb1fd8-20241118",
     "typescript": "^5.0.0"

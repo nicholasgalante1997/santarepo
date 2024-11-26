@@ -1,3 +1,3 @@
 export {};
 
-declare module 'debug';
+declare module "debug";

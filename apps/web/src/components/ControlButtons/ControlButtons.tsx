@@ -1,9 +1,16 @@
-import React from 'react'
-import { type ControlProps } from './ControlButtons.types';
+import React from "react";
+import { type ControlProps } from "./ControlButtons.types";
 
 function ControlButtons(props: ControlProps) {
   return (
-    <div style={{ display: "flex", gap: "1rem", justifyContent: "center", margin: "1rem 0" }}>
+    <div
+      style={{
+        display: "flex",
+        gap: "1rem",
+        justifyContent: "center",
+        margin: "1rem 0",
+      }}
+    >
       <button
         className={props.showTable ? "button-primary" : "button-outline"}
         onClick={() => props.setShowTable(true)}
@@ -17,7 +24,7 @@ function ControlButtons(props: ControlProps) {
         Translate
       </button>
     </div>
-  )
+  );
 }
 
 export default ControlButtons;

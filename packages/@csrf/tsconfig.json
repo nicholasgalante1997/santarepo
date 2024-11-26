@@ -1,0 +1,17 @@
+{
+  "extends": "@santarepo/configs/typescript/bun.tsconfig.json",
+  "compilerOptions": {
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "noEmit": false,
+    "outDir": "./out",
+    "rootDir": "./lib",
+    "baseUrl": "./lib",
+    "paths": {
+      "@/*": ["./lib/*"]
+    },
+    "listEmittedFiles": true
+  },
+  "include": ["lib"],
+  "exclude": ["node_modules"]
+}

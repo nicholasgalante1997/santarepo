@@ -1,4 +1,5 @@
-import { serve } from './server/server';
+import { serve } from "./server/server";
+import log from "./server/log";
 
 const server = serve();
-console.log(`Listening on http://localhost:${server.port} ...`);
+log(`Listening on http://%s:%d :rocket: `, server.hostname, server.port);

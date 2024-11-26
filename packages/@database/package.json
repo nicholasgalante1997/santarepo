@@ -1,0 +1,27 @@
+{
+  "name": "@santarepo/database",
+  "module": "out/index.js",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./out/index.js",
+      "default": "./out/index.js",
+      "types": "./out/index.d.ts"
+    },
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "check-types": "tsc -p tsconfig.json",
+    "bundle": "bun run build.ts",
+    "build": "run-s check-types bundle"
+  },
+  "devDependencies": {
+    "@santarepo/configs": "workspace:*",
+    "@types/bun": "latest",
+    "@types/pg": "^8.11.10"
+  },
+  "peerDependencies": {
+    "pg": "^8.13.1",
+    "typescript": "^5.0.0"
+  }
+}

@@ -1,4 +1,4 @@
 export interface InputProps {
-    setResponseTableData: any;
-    setResponseLetterData: any;
+  setResponseTableData: any;
+  setResponseLetterData: any;
 }

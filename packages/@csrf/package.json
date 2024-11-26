@@ -1,0 +1,27 @@
+{
+  "name": "@santarepo/csrf",
+  "module": "out/index.js",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./out/index.js",
+      "default": "./out/index.js",
+      "types": "./out/index.d.ts"
+    }
+  },
+  "scripts": {
+    "check-types": "tsc -p tsconfig.json",
+    "bundle": "bun build lib/index.ts --outfile=out/index.js --minify --format=esm",
+    "build": "run-s check-types bundle"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "npm-run-all": "^4.1.5"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@santarepo/configs": "workspace:*"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "extends": "@santarepo/configs/typescript/bun.tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": "./",
+    "rootDir": "./",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    "types": ["@google/generative-ai", "node-emoji", "node", "bun"]
+  },
+  "include": ["src"],
+  "exclude": ["node_modules"]
+}

@@ -1,9 +1,9 @@
-import path from 'path';
-import fs from 'fs/promises';
+import path from "path";
+import fs from "fs/promises";
 
-import { mimeTypes } from './mime';
+import { mimeTypes } from "./mime";
 
-const staticFileDirectories = ['public', 'out'] as const;
+const staticFileDirectories = ["public", "out"] as const;
 
 export async function isRequestForStaticFile(request: Request) {
   const url = new URL(request.url);
@@ -29,16 +29,16 @@ export async function handleStaticFileRequest(request: Request) {
       if (await fs.exists(stdpath)) {
         const file = await fs.readFile(stdpath);
         const ext = path.extname(url.pathname);
-        const contentType = mimeTypes[ext] ?? 'application/octet-stream';
+        const contentType = mimeTypes[ext] ?? "application/octet-stream";
         return new Response(file, {
-          headers: { 'Content-Type': contentType },
-          status: 200
+          headers: { "Content-Type": contentType },
+          status: 200,
         });
       }
     } catch (e) {
-      return new Response('Not Found', { status: 404 });
+      return new Response("Not Found", { status: 404 });
     }
   }
 
-  return new Response('Not Found', { status: 404 });
+  return new Response("Not Found", { status: 404 });
 }

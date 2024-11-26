@@ -1,0 +1,24 @@
+{
+  "name": "@santarepo/auth",
+  "module": "src/index.ts",
+  "type": "module",
+  "scripts": {
+    "start": "bun run src/index.ts"
+  },
+  "devDependencies": {
+    "@santarepo/configs": "workspace:*",
+    "@types/bcryptjs": "^2.4.6",
+    "@types/bun": "latest",
+    "@types/debug": "^4.1.12"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@santarepo/configs": "workspace:*",
+    "bcryptjs": "^2.4.3",
+    "debug": "^4.3.7",
+    "lru-cache": "^11.0.2"
+  },
+  "packageManager": "bun@1.1.34"
+}

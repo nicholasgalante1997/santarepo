@@ -1,0 +1,6 @@
+
+[0m[2m[35m$[0m [2m[1mrun-s check-types bundle[0m
+[0m[2m[35m$[0m [2m[1mtsc -p tsconfig.json[0m
+TSFILE: /Users/nickgalante/Code/SantaLetterTurboRepo/packages/@database/out/lib/postgres-driver.d.ts
+TSFILE: /Users/nickgalante/Code/SantaLetterTurboRepo/packages/@database/out/lib/index.d.ts
+[0m[2m[35m$[0m [2m[1mbun run build.ts[0m

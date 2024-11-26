@@ -1,0 +1,28 @@
+include:
+  - ./database/docker-compose.yml
+
+services:
+  bun:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    env_file:
+      - ./apps/auth/.env
+      - ./apps/events/.env
+      - ./apps/llm-api/.env
+      - ./apps/web/.env
+    environment:
+      - NODE_ENV=production
+    expose:
+      - '3000'
+      - '4100'
+      - '4200'
+      - '4300'
+    ports:
+      - "3000:3000"
+      - "4100:4100"
+      - "4200:4200"
+      - "4300:4300"
+    depends_on:
+      - postgres

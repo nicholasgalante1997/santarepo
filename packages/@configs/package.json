@@ -1,8 +1,22 @@
 {
-    "name": "@santarepo/configs",
-    "version": "0.0.0",
-    "private": true,
-    "publishConfig": {
-        "access": "public"
-    }
+  "name": "@santarepo/configs",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "module": "lib/index.js",
+  "scripts": {
+    "build": "echo \"Nothing to build :) !\""
+  },
+  "exports": {
+    ".": {
+      "import": "./lib/index.js",
+      "default": "./lib/index.js",
+      "types": "./lib/index.d.ts"
+    },
+    "./package.json": "./package.json",
+    "./typescript/*": "./typescript/*"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
 }

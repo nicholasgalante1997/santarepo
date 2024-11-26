@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useEffect } from "react";
 
-import { type DocumentProps } from './Document.types';
+import { type DocumentProps } from "./Document.types";
 
 function Document(props: DocumentProps) {
-  useEffect(() => console.log('Mounted on the client'), []);
+  useEffect(() => console.log("Mounted on the client"), []);
   return (
     <html lang="en">
       <head>

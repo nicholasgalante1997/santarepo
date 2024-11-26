@@ -1,0 +1,30 @@
+{
+  "name": "@santarepo/metrics",
+  "module": "out/index.js",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./out/index.js",
+      "default": "./out/index.js",
+      "types": "./out/index.d.ts"
+    }
+  },
+  "scripts": {
+    "check-types": "tsc -p tsconfig.json",
+    "bundle": "bun build lib/index.ts --outfile=out/index.js --minify --format=esm",
+    "build": "run-s check-types bundle"
+  },
+  "devDependencies": {
+    "@santarepo/configs": "workspace:*",
+    "@types/bun": "latest",
+    "@types/debug": "^4.1.12",
+    "npm-run-all": "^4.1.5"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "debug": "^4.3.7",
+    "mitt": "^3.0.1"
+  }
+}
