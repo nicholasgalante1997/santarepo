@@ -23,7 +23,7 @@ async function sendTranslateImagePrompt(options: SendTranslateImagePromptOptions
               type: "text", // Specifying the part type as text
               content: "Translate the written text within this image into text.",
             },
-          ],
+          ] as TextPart[],
         },
         {
           role: "context", // Assuming role "context" for additional info
@@ -47,7 +47,6 @@ async function sendTranslateImagePrompt(options: SendTranslateImagePromptOptions
       ]
     };
 
-    // Send the request using the Gemini class
     const result = await gemini.generate(prompt);
 
     if (!result || !result.text) {
