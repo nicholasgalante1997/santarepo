@@ -1,10 +1,10 @@
 
 [0m[2m[35m$[0m [2m[1mrun-s check-types bundle[0m
 [0m[2m[35m$[0m [2m[1mtsc -p tsconfig.json[0m
-TSFILE: /Users/nickgalante/Code/SantaLetterTurboRepo/packages/@metrics/out/isSerializable.d.ts
-TSFILE: /Users/nickgalante/Code/SantaLetterTurboRepo/packages/@metrics/out/index.d.ts
+TSFILE: /Users/ben/portfolio/santarepo/packages/@metrics/out/isSerializable.d.ts
+TSFILE: /Users/ben/portfolio/santarepo/packages/@metrics/out/index.d.ts
 [0m[2m[35m$[0m [2m[1mbun build lib/index.ts --outfile=out/index.js --minify --format=esm[0m
 
   index.js  8.18 KB
 
-[0m[2m[[1m2ms[0m[2m][0m [32mbundle[0m 6 modules
+[0m[2m[[1m6ms[0m[2m][0m [32mbundle[0m 6 modules

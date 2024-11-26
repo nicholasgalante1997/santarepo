@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { type InputProps } from "./PictureInput.types";
+import { Services } from "@santarepo/configs";
 
 function PictureInput(props: InputProps) {
   const [url, setUrl] = useState("");
@@ -52,7 +53,7 @@ async function uploadPicture(urlToSend: string) {
 
     const base64String = await convertBlobToBase64(blob);
 
-    const apiResponse = await fetch("/api/analyze", {
+    const apiResponse = await fetch(`http://localhost:${Services.LargeLanguageModel.port}/api/models/gemini/create`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

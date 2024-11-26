@@ -1,44 +1,65 @@
 import Gemini from "@/models/Gemini";
+import type { TextPart } from "@google/generative-ai";
 
 type SendTranslateImagePromptOptions = {
-  image: string;
-  source: {
-    language: "en" | "es";
-    usps: {
-      iri: string;
-    };
-  };
+  base64Image: string; 
+  mimeType?: string;
 };
 
-async function sendTranslateImagePrompt(
-  options: SendTranslateImagePromptOptions,
-) {
+async function sendTranslateImagePrompt(options: SendTranslateImagePromptOptions) {
   try {
-    // Prepare the request
+    if (!options.base64Image) {
+      throw new Error("Missing base64 image content");
+    }
+
+    const gemini = new Gemini();
+
     const prompt = {
-      input: "Translate the written text within this image into text",
-      context:
-        "Provide a textual transcription of any visible text in the image.",
-      image: {
-        content: base64Image,
-        mimeType: "image/jpeg", // Adjust based on your image format
-      },
+      contents: [
+        {
+          role: "system", // Assuming role "system" for context setup
+          parts: [
+            {
+              type: "text", // Specifying the part type as text
+              content: "Translate the written text within this image into text.",
+            },
+          ],
+        },
+        {
+          role: "context", // Assuming role "context" for additional info
+          parts: [
+            {
+              type: "text",
+              content: "Provide a textual transcription of any visible text in the image.",
+            },
+          ],
+        },
+        {
+          role: "image", // The image role with base64 content
+          parts: [
+            {
+              type: "image", // Define part type as image
+              content: options.base64Image,
+              mimeType: options.mimeType || "image/jpeg", // Default MIME type
+            },
+          ],
+        },
+      ]
     };
 
-    // Use the most affordable model (e.g., 'gpt-lite' or similar if available)
-    const model = "gpt-lite"; // Replace with the actual affordable model name
-    const response = await client.generate(model, prompt);
+    // Send the request using the Gemini class
+    const result = await gemini.generate(prompt);
 
-    // Handle the response
-    if (response.text) {
-      console.log("Translation Result:");
-      console.log(response.text);
-    } else {
-      console.error("No text result was returned from the API.");
+    if (!result || !result.text) {
+      throw new Error("No text result was returned from the API.");
     }
+
+    console.log("Translation Result:", result.text);
+    return result.text;
   } catch (error) {
     console.error("Error:", error.message);
+    throw error;
   }
 }
 
-main();
+export default sendTranslateImagePrompt;

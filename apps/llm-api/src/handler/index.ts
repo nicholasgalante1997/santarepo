@@ -21,6 +21,7 @@ export default async function handleRequest(req: Request) {
   //   const isValidRequest = await validateCsrfToken(csrf);
 
   if (url.pathname === "/api/models/gemini/create") {
+    
   }
 
   return new Response();
